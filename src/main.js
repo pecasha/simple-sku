@@ -51,12 +51,8 @@ Sku.prototype = {
             if(this.suitRuleInfo.hasOwnProperty(i)) {
                 const curSuitRuleInfo = this.suitRuleInfo[i].split("_");
                 for(let j in curSuitRuleInfo) {
-                    if(curSuitRuleInfo.hasOwnProperty(j)) {
-                        if(!this.paramsArr[j].includes(curSuitRuleInfo[j])) {
-                            if(curSuitRuleInfo[j] > 0) {
-                                this.paramsArr[j].push(curSuitRuleInfo[j]);
-                            }
-                        }
+                    if(curSuitRuleInfo.hasOwnProperty(j) && !this.paramsArr[j].includes(curSuitRuleInfo[j]) && curSuitRuleInfo[j] > 0) {
+                        this.paramsArr[j].push(curSuitRuleInfo[j]);
                     }
                 }
             }
@@ -95,10 +91,8 @@ Sku.prototype = {
         if(number === this.num) {
             const curPattern = this.createPattern(this.paramsSort);
             for(let curSuitId in this.suitRuleInfo) {
-                if(this.suitRuleInfo.hasOwnProperty(curSuitId)) {
-                    if(new RegExp(curPattern).test(this.suitRuleInfo[curSuitId])) {
-                        suitId = curSuitId;
-                    }
+                if(this.suitRuleInfo.hasOwnProperty(curSuitId) && new RegExp(curPattern).test(this.suitRuleInfo[curSuitId])) {
+                    suitId = curSuitId;
                 }
             }
         }
@@ -167,11 +161,8 @@ Sku.prototype = {
 
                 const canNotArr = this.paramsArr[i].filter(key => !this.tempCan[i].includes(key));
                 for(let j in canNotArr) {
-                    if(canNotArr.hasOwnProperty(j)) {
-                        //本次正则选择的层级不在范围里
-                        if(!this.canNotArr[i].includes(canNotArr[j])) {
-                            this.canNotArr[i].push(canNotArr[j]);
-                        }
+                    if(canNotArr.hasOwnProperty(j) && !this.canNotArr[i].includes(canNotArr[j])) { //本次正则选择的层级不在范围里
+                        this.canNotArr[i].push(canNotArr[j]);
                     }
                 }
             }
