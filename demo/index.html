@@ -9,7 +9,7 @@
     <meta name="format-detection" content="email=no">
     <meta name="format-detection" content="address=no">
     <meta name="fragment" content="!">
-    <title>套装筛选测试</title>
+    <title>sku</title>
     <link href="index.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -85,8 +85,8 @@
 <script src="../lib/simple-sku.js"></script>
 <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    var defaultSuitJSON          = eval(["1","3","11"]), //默认套装
-        suitRuleInfo             = {
+    var defaultSuitJSON = eval(["1", "3", "11"]), //默认套装
+        suitRuleInfo = {
             "42": "1_14_77",
             "43": "1_14_78",
             "44": "1_14_79",
@@ -98,67 +98,67 @@
         }; //已有套装
 
     //1. 配置已有套装参数
-    var zsSuit  = new Main.default();
-    zsSuit.config({'suitRuleInfo':suitRuleInfo});
+    var Sku = new Sku.default();
+    Sku.config({'suitRuleInfo': suitRuleInfo});
 
     //设置回调函数，data表示不可选层级，skuId表示确定了唯一套装ID
     //每一次操作，都会触发此函数的回调
-    zsSuit.callBack = function(data, skuId){
+    Sku.callBack = function(data, skuId) {
         //可选与不可选
-        for(var i in data){
-            $(".sku").find("[num="+i+"]").each(function(){
-                var that    = $(this),
-                    curVal  = that.attr("optionValueId");
+        for(var i in data) {
+            $(".sku").find("[num=" + i + "]").each(function() {
+                var that = $(this),
+                    curVal = that.attr("optionValueId");
 
-                if(zsSuit.inArr(curVal, data[i]) < 0){
-                    that.find("span").attr("class","");
-                }else{
-                    that.find("span").attr("class","disabled");
+                if(data[i].includes(curVal)) {
+                    that.find("span").attr("class", "disabled");
+                } else {
+                    that.find("span").attr("class", "");
                 }
             });
         }
-        if(skuId){
+        if(skuId) {
             $(".buy-now").removeClass("buy-now-disabled");
-        }else{
+        } else {
             $(".buy-now").addClass("buy-now-disabled");
         }
     };
 
     //套装选择事件
-    $("li[fn='click']").click(function(){
-        var that            = $(this),
-            curVal          = that.attr("optionValueId"),
-            position        = that.attr("num"),
-            chooseFlag      = that.hasClass("current"),
-            canNotClick     = that.find("span").hasClass("disabled");
+    $("li[fn='click']").click(function() {
+        var that = $(this),
+            curVal = that.attr("optionValueId"),
+            position = that.attr("num"),
+            chooseFlag = that.hasClass("current"),
+            canNotClick = that.find("span").hasClass("disabled");
 
         //是否可点击
-        if(canNotClick){
+        if(canNotClick) {
             return false;
         }
 
 
         //判断选择
-        if(chooseFlag){
-            zsSuit.chooseCancel(1,position,curVal);//样式变化
-            zsSuit.unset(position, curVal);
-        }else{
-            zsSuit.chooseCancel(2,position,curVal);//重新选中
-            zsSuit.set(position,curVal);
+        if(chooseFlag) {
+            Sku.chooseCancel(1, position, curVal);//样式变化
+            Sku.unset(position, curVal);
+        } else {
+            Sku.chooseCancel(2, position, curVal);//重新选中
+            Sku.set(position, curVal);
         }
     });
 
     //套装选择导致的样式变化
-    zsSuit.chooseCancel = function(type,position,val){
-        $(".sku").find("[num="+position+"]").each(function(){
-            var that    = $(this),
-                curVal  = that.attr("optionValueId");
+    Sku.chooseCancel = function(type, position, val) {
+        $(".sku").find("[num=" + position + "]").each(function() {
+            var that = $(this),
+                curVal = that.attr("optionValueId");
 
             //type操作 1取消 2选中
-            if(curVal == val){
-                if(type == 1){
+            if(curVal == val) {
+                if(type == 1) {
                     that.removeClass("current");
-                }else{
+                } else {
                     that.addClass("current").siblings().removeClass("current");
                 }
             }
@@ -168,8 +168,8 @@
     //设置默认套装
     /*if(defaultSuitJSON){
         for(var position in defaultSuitJSON){
-            zsSuit.chooseCancel(2,position,defaultSuitJSON[position]);//重新选中
-            zsSuit.set(position,defaultSuitJSON[position]);
+            Sku.chooseCancel(2,position,defaultSuitJSON[position]);//重新选中
+            Sku.set(position,defaultSuitJSON[position]);
         }
     }*/
 </script>
