@@ -1,21 +1,12 @@
 module.exports = {
     root: true,
-    parser: "vue-eslint-parser",
-    parserOptions: {
-        parser: "babel-eslint"
-    },
+    parser: "babel-eslint",
     env: {
         browser: true,
         es6: true
     },
-    plugins: [
-        "vue"
-    ],
-    extends: ["plugin:vue/essential"],
     globals: {
-        "GLOBAL": false,
-        "process": false,
-        "log": false
+        "process": false
     },
     /* ESLint 规则  */
     // error-开启规则,错误级别、warn-开启规则,警告级别、off-关闭规则

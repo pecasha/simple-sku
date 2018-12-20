@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-const Sku = function(number) {
+const Sku = function Sku(number) {
     this.num = parseInt(number); //套装几层结构
     this.suitRuleInfo = {}; //套装信息 如 {"6692398":"0_26_0_2","6692393":"0_24_0_2"} //{套装ID:第一层_第二层_第三层_第四层}
     this.paramsSort = []; //已经设置的层级ID及值[0:21,1:0,2:0,3:5]
@@ -12,7 +12,7 @@ const Sku = function(number) {
 Sku.prototype = {
     //配置
     config(obj) {
-        this.suitRuleInfo = obj.suitRuleInfo;
+        this.suitRuleInfo = obj;
         this.init();
     },
     //设置信息

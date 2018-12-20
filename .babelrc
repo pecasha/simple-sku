@@ -17,9 +17,6 @@
         "stage-0"
     ],
     "plugins": [
-        "transform-runtime",
-        "syntax-dynamic-import",
-        "jsx-v-model",
-        "transform-vue-jsx"
+        "transform-runtime"
     ]
 }
