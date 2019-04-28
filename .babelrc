@@ -6,7 +6,7 @@
                 "useBuiltIns": "entry",
                 "targets": {
                     "browsers": [
-                        "Chrome >= 20",
+                        "Chrome >= 40",
                         "iOS >= 9",
                         "Android >= 4",
                         "ie >= 9"

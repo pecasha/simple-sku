@@ -1,7 +1,8 @@
 {
     "name": "simple-sku",
     "version": "1.0.0",
-    "description": "简单sku",
+    "title": "simple-sku",
+    "description": "Simple sku module for mall items.",
     "main": "lib/simple-sku.js",
     "scripts": {
         "build": "webpack --config build/webpack.config.js"
@@ -9,8 +10,15 @@
     "keywords": [
         "sku"
     ],
-    "author": "ChiHai-Chuck <chuck@chihai.me>",
+    "author": "chiHai-chuck <chuck@chihai.me>",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/chihai-chuck/simple-sku"
+    },
+    "bugs": {
+        "url": "https://github.com/chihai-chuck/simple-sku/issues"
+    },
     "dependencies": {},
     "devDependencies": {
         "babel-core": "^6.26.3",
@@ -31,7 +39,7 @@
         "npm": ">= 6.0.0"
     },
     "browserslist": [
-        "Chrome >= 20",
+        "Chrome >= 40",
         "iOS >= 9",
         "Android >= 4",
         "ie >= 9"
