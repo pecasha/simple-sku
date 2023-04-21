@@ -15,10 +15,7 @@ yarn-error.log*
 .iws
 *.diff
 *.patch
-*.bak
-*.zip
-*.rar
-*.7z
+
 .project
 .settings
 .*proj
