@@ -9,15 +9,16 @@ export default [
         input: "src/index.ts",
         output: [
             {
-                file: "build/simple-sku.js",
+                file: "build/index.umd.js",
+                name: "Sku",
+                format: "umd"
+            },
+            {
+                file: "build/index.cjs",
                 format: "cjs"
             },
             {
-                file: "build/simple-sku.cjs",
-                format: "cjs"
-            },
-            {
-                file: "build/simple-sku.mjs",
+                file: "build/index.mjs",
                 format: "esm"
             }
         ],
@@ -31,8 +32,16 @@ export default [
                 babelHelpers: "runtime",
                 exclude: "node_modules/**",
                 extensions: [".ts"],
-                presets: ["@babel/preset-env"],
-                plugins: ["@babel/plugin-transform-runtime"]
+                presets: [["@babel/preset-env", {
+                    loose: false,
+                    modules: false,
+                    targets: {
+                        chrome: 60
+                    }
+                }]],
+                plugins: [
+                    "@babel/plugin-transform-runtime"
+                ]
             }),
             terser()
         ]
