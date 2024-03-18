@@ -1,7 +1,7 @@
 import {
     arrayDeepClone,
     arrayDifference
-} from "@goodluck/util";
+} from "@pecasha/util";
 
 interface SkuConfigOptions {
     /** 规格信息数据 例：{6692398:"0_26_0_2",6692393:"0_24_0_2"} {skuID:"第一层_第二层_第三层_第四层"} 传入-1代表这一层不可选 */
@@ -14,7 +14,7 @@ interface SkuConfigOptions {
     callback?: (unavailable: number[][], skuId: number | null) => void;
 }
 
-export default class {
+export default class SimpleSku {
     constructor(
         private options: SkuConfigOptions
     ) {
@@ -37,8 +37,6 @@ export default class {
     #unavailable: number[][] = [];
     /** 临时可选 */
     #availableTemp: number[][] = [];
-    /** 输出回调 */
-    #callback?: SkuConfigOptions["callback"];
 
     /**
      * 设置选中

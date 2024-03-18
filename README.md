@@ -1,6 +1,13 @@
 # Simple-SKU
 
-> 用于商城商品的简易SKU模块。[Demo](https://chihai-chuck.github.io/simple-sku/demo/index.html)
+[![npm version](https://img.shields.io/npm/v/simple-sku?logo=npm)](https://www.npmjs.com/package/simple-sku)
+[![MIT Licence](https://img.shields.io/npm/l/simple-sku.svg)](https://github.com/pecasha/simple-sku/blob/master/LICENSE)
+
+> 用于商城商品的简易SKU模块。
+
+- [在线功能演示](https://pecasha.github.io/simple-sku/demo/index.html)
+- [代码调用示例](https://runkit.com/pecasha/simple-sku)
+- [在线手动尝试](https://npm.runkit.com/simple-sku)
 
 ## 安装
 ### NPM或其它包管理器

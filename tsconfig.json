@@ -1,16 +1,17 @@
 {
     "compilerOptions": {
         "module": "esnext",
-        "target": "esnext",
+        "target": "es2021",
         "declaration": true,
-        "composite": true,
         "strict": true,
+        "noUnusedLocals": true,
         "experimentalDecorators": true,
         "skipLibCheck": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
+        "downlevelIteration": true,
         "moduleResolution": "node",
-        "useDefineForClassFields": true,
+        "useDefineForClassFields": false,
         "lib": [
             "dom",
             "dom.iterable",

@@ -1,8 +1,28 @@
 {
     "name": "simple-sku",
-    "version": "1.0.0",
-    "title": "simple-sku",
+    "version": "1.0.1",
     "description": "用于商城商品的简易SKU模块",
+    "author": {
+        "name": "Pecasha",
+        "email": "chihai@pecasha.com",
+        "url": "https://pecasha.com"
+    },
+    "license": "MIT",
+    "homepage": "https://pecasha.github.io/simple-sku",
+    "keywords": [
+        "sku",
+        "mall",
+        "store",
+        "goods"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pecasha/simple-sku.git"
+    },
+    "bugs": {
+        "url": "https://github.com/pecasha/simple-sku/issues"
+    },
+    "sideEffects": false,
     "main": "build/index.cjs",
     "module": "build/index.mjs",
     "esnext": "build/index.mjs",
@@ -14,41 +34,25 @@
             "types": "./build/index.d.ts"
         }
     },
-    "sideEffects": false,
-    "keywords": [
-        "sku"
-    ],
     "files": [
         "build"
     ],
-    "author": "ChiHai-Chuck<chuck@chihai.me>",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/chihai-chuck/simple-sku.git"
-    },
-    "bugs": {
-        "url": "https://github.com/chihai-chuck/simple-sku/issues"
-    },
     "scripts": {
         "build": "rollup -c --bundleConfigAsCjs",
         "up": "pnpm update -i --latest"
     },
     "dependencies": {
-        "@goodluck/util": "^4.1.2"
+        "@pecasha/util": "^2.1.2"
     },
     "devDependencies": {
-        "@babel/core": "^7.21.4",
-        "@babel/plugin-transform-runtime": "^7.21.4",
-        "@babel/preset-env": "^7.21.4",
-        "@babel/runtime": "^7.21.5",
-        "@rollup/plugin-babel": "^6.0.3",
-        "@rollup/plugin-commonjs": "^24.1.0",
-        "@rollup/plugin-node-resolve": "^15.0.2",
-        "core-js": "^3.30.1",
-        "rollup": "^3.20.6",
-        "rollup-plugin-terser": "^7.0.2",
-        "rollup-plugin-typescript2": "^0.34.1",
-        "typescript": "^5.0.4"
+        "@rollup/plugin-babel": "^6.0.4",
+        "@rollup/plugin-commonjs": "^25.0.7",
+        "@rollup/plugin-node-resolve": "^15.2.3",
+        "@rollup/plugin-terser": "^0.4.4",
+        "@rollup/plugin-typescript": "^11.1.6",
+        "core-js": "^3.36.0",
+        "rollup": "^4.12.1",
+        "tslib": "^2.6.2",
+        "typescript": "^5.4.2"
     }
 }
